@@ -123,18 +123,36 @@ public class IntArrayWorker
 				}
 			}
 		}
-
-		countTotal = 0;
-		for (int[] row : matrix)
+		return countTotal;
+	}
+	
+	public int getLargest()
+	{
+		
+		int largest = matrix[0][0];
+		
+		for(int row = 0; row < matrix.length; row++)
 		{
-			for (int spot : row)
+			for(int col = 0; col < matrix[0].length; col++)
 			{
-				if (spot == searchValue)
+				if(matrix[row][col] > largest)
 				{
-					countTotal++;
+					largest = matrix[row][col];
 				}
 			}
 		}
-		return countTotal;
+		return largest;
+	}
+	
+	public int getColTotal(int column)
+	{
+		int sum = 0;
+		
+		for(int row = 0; row < matrix.length; row++)
+		{
+			sum += matrix[row][column];
+		}
+		
+		return sum;
 	}
 }
