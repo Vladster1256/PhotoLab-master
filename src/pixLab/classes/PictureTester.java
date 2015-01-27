@@ -81,35 +81,90 @@ public class PictureTester
 		water.explore();
 	}
 	
+	public static void testKeepOnlyRed()
+	{
+		Picture beach = new Picture("beach.jpg");
+		beach.keepOnlyRed();
+		beach.explore();
+	}
+	
+	public static void testKeepOnlyGreen()
+	{
+		Picture beach = new Picture("beach.jpg");
+		beach.keepOnlyGreen();
+		beach.explore();
+	}
+	
+	public static void testMirrorVerticalRightToLeft()
+	{
+		Picture caterpillar = new Picture("caterpillar.jpg");
+		caterpillar.mirrorVerticalRightToLeft();
+		caterpillar.explore();
+	}
+	
+	public static void testMirrorHorizontalBottomToTop()
+	{
+		Picture motorcycle = new Picture("redMotorcycle.jpg");
+		motorcycle.mirrorHorizontalBotToTop();
+		motorcycle.explore();
+	}
+	
+	public static void testMirrorHorizontalTopToBot()
+	{
+		Picture motorcycle = new Picture("redMotorcycle.jpg");
+		motorcycle.mirrorHorizontal();
+		motorcycle.explore();
+	}
+	
+	public static void testKeepTopHalf()
+	{
+		Picture motorcycle = new Picture("redMotorcycle.jpg");
+		motorcycle.keepTopHalf();
+		motorcycle.explore();
+	}
+	
+	public static void testMirrorDiagonal()
+	{
+		Picture motorcycle = new Picture("redMotorcycle.jpg");
+		motorcycle.mirrorDiagonal();
+		motorcycle.explore();
+	}
+	
+	
+	
 	/**
 	 * Main method for testing. Every class can have a main method in Java
 	 */
 	public static void main(String[] args)
 	{
-		// uncomment a call here to run a test
-		// and comment out the ones you don't want
-		// to run
-		//testZeroBlue();
-		//testKeepBlue();
-		// testKeepOnlyRed();
-		// testKeepOnlyGreen();
-		// testNegate();
-		// testGrayscale();
-		 testFixUnderwater();
-		//testMirrorVertical();
-		// testMirrorTemple();
-		// testMirrorArms();
-		// testMirrorGull();
-		// testMirrorDiagonal();
-		// testCollage();
-		// testCopy();
-		// testEdgeDetection();
-		// testEdgeDetection2();
-		// testChromakey();
-		// testEncodeAndDecode();
-		// testGetCountRedOverValue(250);
-		// testSetRedToHalfValueInTopHalf();
-		// testClearBlueOverValue(200);
-		// testGetAverageForColumn(0);
+//		 uncomment a call here to run a test
+//		 and comment out the ones you don't want
+//		 to run
+//		 testZeroBlue();
+//		 testKeepBlue();
+//		 testKeepOnlyRed();
+//		 testKeepOnlyGreen();
+//		 testNegate();
+//		 testGrayscale();
+//		 testFixUnderwater();
+//		 testMirrorVertical();
+//		 testMirrorHorizontalTopToBot();
+//       testMirrorHorizontalBottomToTop();
+//		 testMirrorVerticalRightToLeft();
+//		 testMirrorTemple();
+//		 testMirrorArms();
+//		 testMirrorGull();
+		 testMirrorDiagonal();
+//		 testCollage();
+//		 testCopy();
+//		 testEdgeDetection();
+//		 testEdgeDetection2();
+//		 testChromakey();
+//		 testEncodeAndDecode();
+//		 testGetCountRedOverValue(250);
+//		 testSetRedToHalfValueInTopHalf();
+//		 testClearBlueOverValue(200);
+//		 testGetAverageForColumn(0);
+//		 testKeepTopHalf();
 	}
 }

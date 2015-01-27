@@ -106,7 +106,41 @@ public class Picture extends SimplePicture
 			}
 		}
 	}
+	
+	/**
+	 * This keeps only green and removes blue and red
+	 */
+	public void keepOnlyGreen()
+	{
+		Pixel[][] pixels = this.getPixels2D();
+		for(Pixel[] rowArray : pixels)
+		{
+			for(Pixel pixelObj: rowArray)
+			{
+				pixelObj.setRed(0);
+				pixelObj.setBlue(0);
+			}
+		}
+	}
 
+	/**
+	 * this keeps only red and removes blue and green
+	 */
+	public void keepOnlyRed()
+	{
+		Pixel[][] pixels = this.getPixels2D();
+		for(Pixel[] rowArray : pixels)
+		{
+			for(Pixel pixelObj: rowArray)
+			{
+				pixelObj.setBlue(0);
+				pixelObj.setGreen(0);
+			}
+		}
+	}
+	/**
+	 * this keeps only blue values and removes red and green values
+	 */
 	public void keepOnlyBlue()
 	{
 		Pixel[][] pixels = this.getPixels2D();
@@ -137,6 +171,9 @@ public class Picture extends SimplePicture
 		}
 	}
 
+	/**
+	 * this turns the image grayscale
+	 */
 	public void grayscale()
 	{
 		Pixel[][] pixels = this.getPixels2D();
@@ -151,6 +188,9 @@ public class Picture extends SimplePicture
 		}
 	}
 	
+	/**
+	 * This fixes the underwater image by adding more red values to the image
+	 */
 	public void fixUnderwater()
 	{
 		Pixel[][] pixels = this.getPixels2D();
@@ -162,6 +202,8 @@ public class Picture extends SimplePicture
 			}
 		}
 	}
+	
+	
 
 	/**
 	 * Method that mirrors the picture around a vertical mirror in the center of
@@ -180,6 +222,25 @@ public class Picture extends SimplePicture
 				leftPixel = pixels[row][col];
 				rightPixel = pixels[row][width - 1 - col];
 				rightPixel.setColor(leftPixel.getColor());
+			}
+		}
+	}
+	/**
+	 * This mirrors the image from right to left
+	 */
+	public void mirrorVerticalRightToLeft()
+	{
+		Pixel[][] pixels = this.getPixels2D();
+		Pixel leftPixel = null;
+		Pixel rightPixel = null;
+		int width = pixels[0].length;
+		for (int row = 0; row < pixels.length; row++)
+		{
+			for (int col = 0; col < width / 2; col++)
+			{
+				rightPixel = pixels[row][width - 1 - col];
+				leftPixel = pixels[row][col];
+				leftPixel.setColor(rightPixel.getColor());
 			}
 		}
 	}
@@ -207,6 +268,89 @@ public class Picture extends SimplePicture
 		}
 	}
 
+	public void mirrorHorizontalBotToTop()
+	{
+		Pixel[][] pixels = this.getPixels2D();
+		Pixel botPixel = null;
+		Pixel topPixel = null;
+		int height= pixels.length;
+		for (int col =0; col < pixels[0].length; col++)
+		{
+			for (int row = 0; row < height / 2; row++)
+			{
+				botPixel = pixels[height - 1 - row][col];
+				topPixel = pixels[row][col];
+				topPixel.setColor(botPixel.getColor());
+			}
+		}
+	}
+	
+	public void mirrorHorizontal()
+	{
+		Pixel[][] pixels = this.getPixels2D();
+		Pixel botPixel = null;
+		Pixel topPixel = null;
+		int height= pixels.length;
+		for (int col =0; col < pixels[0].length; col++)
+		{
+			for (int row = 0; row < height / 2; row++)
+			{
+				topPixel = pixels[row][col];
+				botPixel = pixels[height - 1 - row][col];
+				botPixel.setColor(topPixel.getColor());
+			}
+		}
+	}
+	
+	public void keepTopHalf()
+	{
+		Pixel[][] pixels = this.getPixels2D();
+		Pixel botPixel = null;
+		Pixel topPixel = null;
+		int height= pixels.length;
+		for (int col =0; col < pixels[0].length; col++)
+		{
+			for (int row = 0; row < height / 2; row++)
+			{
+				topPixel = pixels[row][col];
+				botPixel = pixels[height - 1 - row][col];
+				botPixel.setBlue(255);
+				botPixel.setRed(255);
+				botPixel.setGreen(255);
+				botPixel.setAlpha(255);
+			}
+		}
+	}
+	
+	public void mirrorDiagonal()
+	{
+		Pixel[][] pixels = this.getPixels2D();
+		Pixel lefthalf = null;
+		Pixel righthalf = null;
+		int height= pixels.length;
+		for (int col =0; col < pixels[0].length; col++)
+		{
+			for (int row = 0; row < height / 2; row++)
+			{
+				lefthalf = pixels[row][col];
+				botPixel = pixels[height - 1 - row][col];
+				botPixel.setColor(topPixel.getColor());
+			}
+		}
+		Pixel leftPixel = null;
+		Pixel rightPixel = null;
+		int width = pixels[0].length;
+		for (int row = 0; row < pixels.length; row++)
+		{
+			for (int col = 0; col < width / 2; col++)
+			{
+				rightPixel = pixels[row][width - 1 - col];
+				leftPixel = pixels[row][col];
+				leftPixel.setColor(rightPixel.getColor());
+			}
+		}
+	}
+	
 	/**
 	 * copy from the passed fromPic to the specified startRow and startCol in
 	 * the current picture
