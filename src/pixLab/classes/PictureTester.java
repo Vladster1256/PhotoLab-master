@@ -130,7 +130,23 @@ public class PictureTester
 		motorcycle.explore();
 	}
 	
+	public static void testMirrorArms()
+	{
+		Picture snowman = new Picture("snowman.jpg");
+		snowman.mirrorArms();
+		snowman.explore();
+	}
 	
+	public static void createAwesomePicture()
+	{
+		Picture poker = new Picture("poker.jpg");
+		poker.mirrorVerticalRightToLeft();
+		poker.mirrorHorizontal();
+		poker.mirrorVertical();
+		poker.keepOnlyRed();
+		poker.grayscale();
+		poker.explore();
+	}
 	
 	/**
 	 * Main method for testing. Every class can have a main method in Java
@@ -140,6 +156,7 @@ public class PictureTester
 //		 uncomment a call here to run a test
 //		 and comment out the ones you don't want
 //		 to run
+		 createAwesomePicture();
 //		 testZeroBlue();
 //		 testKeepBlue();
 //		 testKeepOnlyRed();
@@ -154,7 +171,7 @@ public class PictureTester
 //		 testMirrorTemple();
 //		 testMirrorArms();
 //		 testMirrorGull();
-		 testMirrorDiagonal();
+//		 testMirrorDiagonal();
 //		 testCollage();
 //		 testCopy();
 //		 testEdgeDetection();
