@@ -148,6 +148,28 @@ public class PictureTester
 		poker.explore();
 	}
 	
+	public static void testSepiaTone()
+	{
+		Picture beach = new Picture("beach.jpg");
+		beach.sepiaTone();
+		beach.explore();
+	}
+	
+	public static void testEdgeDetection2()
+	{
+		Picture swan = new Picture("swan.jpg");
+		swan.edgeDetection2(30);
+		swan.explore();
+	}
+	
+	public static void testRandomChange()
+	{
+		Picture poker = new Picture("poker.jpg");
+		poker.explore();
+		poker.randomChange();
+		poker.explore();
+	}
+	
 	/**
 	 * Main method for testing. Every class can have a main method in Java
 	 */
@@ -156,26 +178,30 @@ public class PictureTester
 //		 uncomment a call here to run a test
 //		 and comment out the ones you don't want
 //		 to run
-		 createAwesomePicture();
+		
+		
+//		 testRandomChange();
+//		 testSepiaTone();
+//		 createAwesomePicture();
 //		 testZeroBlue();
 //		 testKeepBlue();
 //		 testKeepOnlyRed();
 //		 testKeepOnlyGreen();
 //		 testNegate();
-//		 testGrayscale();
+		 testGrayscale();
 //		 testFixUnderwater();
 //		 testMirrorVertical();
 //		 testMirrorHorizontalTopToBot();
 //       testMirrorHorizontalBottomToTop();
 //		 testMirrorVerticalRightToLeft();
 //		 testMirrorTemple();
-//		 testMirrorArms();
+//     	 testMirrorArms();
 //		 testMirrorGull();
 //		 testMirrorDiagonal();
 //		 testCollage();
 //		 testCopy();
 //		 testEdgeDetection();
-//		 testEdgeDetection2();
+//    	 testEdgeDetection2();
 //		 testChromakey();
 //		 testEncodeAndDecode();
 //		 testGetCountRedOverValue(250);
