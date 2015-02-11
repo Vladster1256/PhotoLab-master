@@ -184,18 +184,12 @@ public class Picture extends SimplePicture
 			for (Pixel pixelObj : rowArray)
 			{
 				int averageColor = (pixelObj.getBlue() + pixelObj.getGreen() + pixelObj.getRed()/3);
-				if(averageColor < 120)
-				{
-					pixelObj.setGreen((pixelObj.getGreen() + pixelObj.getRed() + pixelObj.getBlue()) / 3);
-					pixelObj.setBlue((pixelObj.getGreen() + pixelObj.getRed() + pixelObj.getBlue()) / 3);
-					pixelObj.setRed((pixelObj.getGreen() + pixelObj.getRed() + pixelObj.getBlue()) / 3);
-				}
-				else
-				{
-					pixelObj.setGreen((pixelObj.getGreen() + pixelObj.getRed() + pixelObj.getBlue()) / 3);
-					pixelObj.setBlue((pixelObj.getGreen() + pixelObj.getRed() + pixelObj.getBlue()) / 3);
-					pixelObj.setRed((pixelObj.getGreen() + pixelObj.getRed() + pixelObj.getBlue()) / 3);
-				}
+				
+					pixelObj.setGreen(averageColor/2);
+					pixelObj.setBlue(averageColor/2);
+					pixelObj.setRed(averageColor/2);
+				
+				
 			}
 		}
 	}
@@ -389,7 +383,18 @@ public class Picture extends SimplePicture
 
 	public void mirrorDiagonal()
 	{
-
+		Pixel[][] pixels = this.getPixels2D();
+		Pixel leftSide = null;
+		Pixel rightSide = null;
+		int height = pixels.length;
+		for(int row = 0; row < height; row++)
+		{
+			for(int col = 0; col< pixels[0].length; col++)
+			{
+				leftSide = pixels[row][col];
+				rightSide = pixels[height][row];
+			}
+		}
 	}
 
 	/**

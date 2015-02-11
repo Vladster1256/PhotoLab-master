@@ -170,6 +170,8 @@ public class PictureTester
 		poker.explore();
 	}
 	
+	
+	
 	/**
 	 * Main method for testing. Every class can have a main method in Java
 	 */
@@ -188,7 +190,7 @@ public class PictureTester
 //		 testKeepOnlyRed();
 //		 testKeepOnlyGreen();
 //		 testNegate();
-		 testGrayscale();
+//		 testGrayscale();
 //		 testFixUnderwater();
 //		 testMirrorVertical();
 //		 testMirrorHorizontalTopToBot();
@@ -197,7 +199,7 @@ public class PictureTester
 //		 testMirrorTemple();
 //     	 testMirrorArms();
 //		 testMirrorGull();
-//		 testMirrorDiagonal();
+		 testMirrorDiagonal();
 //		 testCollage();
 //		 testCopy();
 //		 testEdgeDetection();
