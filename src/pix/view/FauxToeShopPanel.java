@@ -35,7 +35,7 @@ public class FauxToeShopPanel extends JPanel
 		setupComboBox();
 		setupPanel();
 		setupLayout();
-		setupListeners();
+//		setupListeners();
 		
 	}
 
@@ -71,21 +71,21 @@ public class FauxToeShopPanel extends JPanel
 		imagePane.setViewportView(picDisplay);
 	}
 	
-	private void setupListeners()
-	{
-		filterBox.addItemListener(new ItemListener()
-		{
-			@Override
-			public void itemStateChange(ItemEvent currentEvent)
-			{
-			if(filterBox.getSelectedIndex()==1)
-			{
-				basePicture.randomChange();
-				setupPicture();
-			}
-			}
-		});
-	}
+//	private void setupListeners()
+//	{
+//		filterBox.addItemListener(new ItemListener()
+//		{
+//			@Override
+//			public void itemStateChange(ItemEvent currentEvent)
+//			{
+//			if(filterBox.getSelectedIndex()==1)
+//			{
+//				basePicture.randomChange();
+//				setupPicture();
+//			}
+//			}
+//		});
+//	}
 	
 	private void setupLayout()
 	{

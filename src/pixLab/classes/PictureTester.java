@@ -170,8 +170,26 @@ public class PictureTester
 		poker.explore();
 	}
 	
+	public static void testMirrorGull()
+	{
+		Picture gull = new Picture("seagull.jpg");
+		gull.mirrorGull();
+		gull.explore();
+	}
 	
+	public static void testCopy()
+	{
+		Picture poker = new Picture("poker.jpg");
+		poker.copy(poker, 0, 0);
+		poker.explore();
+	}
 	
+	public static void testCreateCollage()
+	{
+		Picture poker = new Picture("poker.jpg");
+		poker.createCollage();
+		poker.explore();
+	}
 	/**
 	 * Main method for testing. Every class can have a main method in Java
 	 */
@@ -199,8 +217,8 @@ public class PictureTester
 //		 testMirrorTemple();
 //     	 testMirrorArms();
 //		 testMirrorGull();
-		 testMirrorDiagonal();
-//		 testCollage();
+//		 testMirrorDiagonal();
+		 testCollage();
 //		 testCopy();
 //		 testEdgeDetection();
 //    	 testEdgeDetection2();

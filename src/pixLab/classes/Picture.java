@@ -208,6 +208,30 @@ public class Picture extends SimplePicture
 			}
 		}
 	}
+	
+	public void mirrorGull()
+	{
+		int LeftstartCopy = 234;
+		Pixel LefttopPixel = null;
+		Pixel LeftbottomPixel = null;
+		Pixel[][] pixels = this.getPixels2D();
+		int LeftendCopy = 340;
+		
+
+		// loop through the rows
+		for (int row = 233; row < 323; row++)
+		{
+			
+			// 
+			for (int col = LeftstartCopy; col < LeftendCopy; col++)
+			{
+				LefttopPixel = pixels[row][col];
+				LeftbottomPixel = pixels[row][col+105];
+				LeftbottomPixel.setColor(LefttopPixel.getColor());
+
+			}
+		}
+	}
 
 	/**
 	 * Method that mirrors the picture around a vertical mirror in the center of
@@ -276,24 +300,41 @@ public class Picture extends SimplePicture
 
 	public void mirrorArms()
 	{
-		int startCopy = 156;
-		Pixel topPixel = null;
-		Pixel bottomPixel = null;
+		int LeftstartCopy = 100;
+		Pixel LefttopPixel = null;
+		Pixel LeftbottomPixel = null;
 		Pixel[][] pixels = this.getPixels2D();
-		int endCopy = 1;
+		int LeftendCopy = 170;
+		int Leftadding = LeftendCopy - LeftstartCopy;
 
 		// loop through the rows
-		for (int row = 155; row < 197; row++)
+		for (int row = 155; row < 190; row++)
 		{
-			// loop from 13 to just before the mirror point
-			for (int col = 100; col < startCopy; col++)
+			
+			// 
+			for (int col = LeftstartCopy; col < LeftendCopy; col++)
 			{
-				topPixel = pixels[row][col];
-				bottomPixel = pixels[startCopy - row + startCopy][col];
-				bottomPixel.setColor(topPixel.getColor());
+				LefttopPixel = pixels[row][col];
+				LeftbottomPixel = pixels[LeftstartCopy + row - LeftendCopy +140][col-5];
+				LeftbottomPixel.setColor(LefttopPixel.getColor());
 
 			}
 		}
+		 int RightstartCopy = 239;
+		 Pixel RighttopPixel = null;
+		 Pixel RightbottomPixel = null;
+		 int RightendCopy = 290;
+		 
+		 for(int Rightrow = 155; Rightrow<190; Rightrow++)
+		 {
+			 for (int Rightcol = RightstartCopy; Rightcol < RightendCopy; Rightcol++)
+			 {
+				 RighttopPixel = pixels[Rightrow][Rightcol];
+				 RightbottomPixel = pixels[RightstartCopy + Rightrow - RightendCopy + 130][Rightcol+5];
+				 RightbottomPixel.setColor(RighttopPixel.getColor());
+			 }
+		 }
+		
 	}
 
 	public void sepiaTone()
@@ -430,6 +471,7 @@ public class Picture extends SimplePicture
 	{
 		Picture flower1 = new Picture("flower1.jpg");
 		Picture flower2 = new Picture("flower2.jpg");
+		Picture poker = new Picture("poker.jpg");
 		this.copy(flower1, 0, 0);
 		this.copy(flower2, 100, 0);
 		this.copy(flower1, 200, 0);
@@ -440,6 +482,7 @@ public class Picture extends SimplePicture
 		this.copy(flower2, 500, 0);
 		this.mirrorVertical();
 		this.write("collage.jpg");
+		this.copy(poker, 0, 100);
 	}
 
 	/**
