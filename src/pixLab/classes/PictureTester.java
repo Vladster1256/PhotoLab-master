@@ -180,7 +180,7 @@ public class PictureTester
 	public static void testCopy()
 	{
 		Picture poker = new Picture("poker.jpg");
-		poker.copy(poker, 0, 0);
+		poker.createExactCopy(poker, 399, 399);
 		poker.explore();
 	}
 	
@@ -218,8 +218,8 @@ public class PictureTester
 //     	 testMirrorArms();
 //		 testMirrorGull();
 //		 testMirrorDiagonal();
-		 testCollage();
-//		 testCopy();
+//		 testCollage();
+		 testCopy();
 //		 testEdgeDetection();
 //    	 testEdgeDetection2();
 //		 testChromakey();

@@ -427,16 +427,30 @@ public class Picture extends SimplePicture
 		Pixel[][] pixels = this.getPixels2D();
 		Pixel leftSide = null;
 		Pixel rightSide = null;
+		int rowOn = 1;
+		int colOn = 1;
+		
+		
+		
+		int slope = -(pixels[0].length/pixels.length);
+		
 		int height = pixels.length;
 		for(int row = 0; row < height; row++)
 		{
 			for(int col = 0; col< pixels[0].length; col++)
 			{
-				leftSide = pixels[row][col];
-				rightSide = pixels[height][row];
+				if(rowOn > row && colOn > col)
+				{
+					
+				}
 			}
+			rowOn++;
+			colOn++;
+			
 		}
 	}
+	
+	
 
 	/**
 	 * copy from the passed fromPic to the specified startRow and startCol in
@@ -464,6 +478,14 @@ public class Picture extends SimplePicture
 				toPixel.setColor(fromPixel.getColor());
 			}
 		}
+	}
+	
+	public void createExactCopy(Picture fromPic, int startRow, int startCol)
+	{
+		Picture poker = new Picture("poker.jpg");
+		Pixel [][] pokerImage = fromPic.getPixels2D();
+		this.copy(poker, 0, 0);
+		this.copy(fromPic, startRow , startCol);
 	}
 
 	/** Method to create a collage of several pictures */
