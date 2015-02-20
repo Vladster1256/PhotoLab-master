@@ -209,6 +209,9 @@ public class Picture extends SimplePicture
 		}
 	}
 	
+	/**
+	 * This is the method we use to copy the original gull and copy it to the right a bit
+	 */
 	public void mirrorGull()
 	{
 		int LeftstartCopy = 234;

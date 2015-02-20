@@ -20,8 +20,10 @@ public class FauxToeShopPanel extends JPanel
 	private FauxToeShopController mainController;
 	private SpringLayout baseLayout;
 	private JScrollPane imagePane;
-	private JComboBox filterBox;
+	private JComboBox <String>filterBox;
 	private Picture basePicture;
+	private String [] imageArray;
+	private JComboBox <String> imageBox;
 	
 	
 	public FauxToeShopPanel(FauxToeShopController mainController)
@@ -31,11 +33,12 @@ public class FauxToeShopPanel extends JPanel
 		imagePane = new JScrollPane();
 		basePicture = new Picture("poker.jpg");
 		
+		
 		setupPicture();
 		setupComboBox();
 		setupPanel();
 		setupLayout();
-//		setupListeners();
+		setupListeners();
 		
 	}
 
@@ -56,6 +59,20 @@ public class FauxToeShopPanel extends JPanel
 				"testGetAverageForColumn"
 		};
 		filterBox = new JComboBox(filterArray);
+		
+		imageArray = new String [] {
+				"kitten2.jpg",
+				"water.jpg",
+				"wall.jpg",
+				"barbaraS.jpg",
+				"moon-surface.jpg",
+				"koala,jpg",
+				"poker.jpg",
+				"redMotorcycle.jpg"
+				
+		};
+		
+				
 	}
 	private void setupPanel()
 	{
@@ -64,6 +81,11 @@ public class FauxToeShopPanel extends JPanel
 		this.add(imagePane);
 	}
 
+	private void loadPicture()
+	{
+		basePicture = new Picture (imageArray[imageBox.getSelectedIndex()]);
+		setupPicture();
+	}
 	private void setupPicture()
 	{
 		BufferedImage bufferedPic = basePicture.getBufferedImage();
@@ -71,21 +93,31 @@ public class FauxToeShopPanel extends JPanel
 		imagePane.setViewportView(picDisplay);
 	}
 	
-//	private void setupListeners()
-//	{
-//		filterBox.addItemListener(new ItemListener()
-//		{
-//			@Override
-//			public void itemStateChange(ItemEvent currentEvent)
-//			{
-//			if(filterBox.getSelectedIndex()==1)
-//			{
-//				basePicture.randomChange();
-//				setupPicture();
-//			}
-//			}
-//		});
-//	}
+	private void setupListeners()
+	{
+		imageBox.addItemListener(new ItemListener()
+		{
+			@Override
+			public void itemStateChanged(ItemEvent currentEvent)
+			{
+				loadPicture();
+			}
+		});
+		
+		filterBox.addItemListener(new ItemListener()
+		{
+			@Override
+			public void itemStateChanged(ItemEvent currentEvent)
+			{
+			if(filterBox.getSelectedIndex()==0)
+			{
+				loadPicture();
+				basePicture.randomChange();
+				setupPicture();
+			}
+		
+			}});
+	}
 	
 	private void setupLayout()
 	{
