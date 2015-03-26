@@ -190,6 +190,18 @@ public class PictureTester
 		poker.createCollage();
 		poker.explore();
 	}
+	
+	public static void createGiygas()
+	{
+		Picture giygas = new Picture("Giygas2.jpg");
+		giygas.mirrorHorizontal();
+		giygas.keepOnlyRed();
+		giygas.mirrorVertical();
+		giygas.mirrorVerticalRightToLeft();
+		giygas.explore();
+		giygas.write("awesomeaiygasaic.jpg");
+	}
+	
 	/**
 	 * Main method for testing. Every class can have a main method in Java
 	 */
@@ -219,7 +231,7 @@ public class PictureTester
 //		 testMirrorGull();
 //		 testMirrorDiagonal();
 //		 testCollage();
-		 testCopy();
+//		 testCopy();
 //		 testEdgeDetection();
 //    	 testEdgeDetection2();
 //		 testChromakey();
@@ -229,5 +241,6 @@ public class PictureTester
 //		 testClearBlueOverValue(200);
 //		 testGetAverageForColumn(0);
 //		 testKeepTopHalf();
+		createGiygas();
 	}
 }

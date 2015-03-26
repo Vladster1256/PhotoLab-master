@@ -34,11 +34,11 @@ public class FauxToeShopPanel extends JPanel
 		basePicture = new Picture("poker.jpg");
 		
 		
-		setupPicture();
-		setupComboBox();
+		//setupPicture();
+		//setupComboBox();
 		setupPanel();
-		setupLayout();
-		setupListeners();
+		//setupLayout();
+		//setupListeners();
 		
 	}
 
@@ -78,7 +78,7 @@ public class FauxToeShopPanel extends JPanel
 	{
 		this.setLayout(baseLayout);
 		this.add(filterBox);
-		this.add(imagePane);
+	//	this.add(imagePane);
 	}
 
 	private void loadPicture()
