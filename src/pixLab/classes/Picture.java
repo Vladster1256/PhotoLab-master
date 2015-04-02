@@ -596,6 +596,35 @@ public class Picture extends SimplePicture
 		}
 		
 	}
+	
+	public void encode(Picture fromPic)
+	{
+		Pixel[][] wowOne = this.getPixels2D();
+		Pixel[][] wowTwo = fromPic.getPixels2D();
+		
+		for(int row = 0; row< wowOne.length; row++)
+		{
+			for(int col = 0; col < wowOne[0].length; col++)
+			{
+				if(wowTwo[row][col].getGreen() % 2 == 1 && wowTwo[row][col].getGreen() > 0)
+				{
+					
+					wowOne[row][col].setGreen(wowTwo[row][col].getGreen()-1);
+				}
+				if(wowTwo[row][col].getBlue() % 2 == 1 && wowTwo[row][col].getBlue() > 0)
+				{
+					
+					wowOne[row][col].setBlue(wowTwo[row][col].getBlue()-1);
+				}
+				if(wowTwo[row][col].getRed() % 2 == 1 && wowTwo[row][col].getRed() > 0)
+				{
+					
+					wowOne[row][col].setRed(wowTwo[row][col].getRed()-1);
+				}
+			}
+		}
+	}
+	
 
 	/*
 	 * Main method for testing - each class in Java can have a main method
