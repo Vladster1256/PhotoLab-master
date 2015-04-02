@@ -202,6 +202,14 @@ public class PictureTester
 		giygas.write("awesomeaiygasaic.jpg");
 	}
 	
+	public static void testChromaKey()
+	{
+		Picture wowOne = new Picture("wowOne.jpg");
+		Picture wowTwo = new Picture("wowTwo.jpg");
+		wowOne.chromaKey(wowTwo);
+		wowOne.explore();
+	}
+	
 	/**
 	 * Main method for testing. Every class can have a main method in Java
 	 */
@@ -241,6 +249,7 @@ public class PictureTester
 //		 testClearBlueOverValue(200);
 //		 testGetAverageForColumn(0);
 //		 testKeepTopHalf();
-		createGiygas();
+//		createGiygas();
+		testChromaKey();
 	}
 }

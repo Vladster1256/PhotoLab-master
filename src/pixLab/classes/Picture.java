@@ -576,16 +576,36 @@ public class Picture extends SimplePicture
 		}
 
 	}
+	
+	public void chromaKey(Picture fromPic)
+	{
+		Pixel[][] wowOne = this.getPixels2D();
+		Pixel[][] wowTwo = fromPic.getPixels2D();
+		
+		for(int row = 0; row< wowOne.length; row++)
+		{
+			for(int col = 0; col < wowOne[0].length; col++)
+			{
+				if(wowOne[row][col].getRed() > 50 && wowOne[row][col].getGreen() > 50 && wowOne[row][col].getBlue() > 50 )
+				{
+					wowOne[row][col].setRed(wowTwo[row][col].getRed());
+					wowOne[row][col].setBlue(wowTwo[row][col].getBlue());
+					wowOne[row][col].setGreen(wowTwo[row][col].getGreen());
+				}
+			}
+		}
+		
+	}
 
 	/*
 	 * Main method for testing - each class in Java can have a main method
 	 */
-	public static void main(String[] args)
-	{
-		Picture beach = new Picture("beach.jpg");
-		beach.explore();
-		beach.zeroBlue();
-		beach.explore();
-	}
+//	public static void main(String[] args)
+//	{
+//		Picture beach = new Picture("beach.jpg");
+//		beach.explore();
+//		beach.zeroBlue();
+//		beach.explore();
+//	}
 
 } // this } is the end of class Picture, put all new methods before this
