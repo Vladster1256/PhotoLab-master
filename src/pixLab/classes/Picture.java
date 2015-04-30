@@ -609,20 +609,47 @@ public class Picture extends SimplePicture
 				if(wowTwo[row][col].getGreen() % 2 == 1 && wowTwo[row][col].getGreen() > 0)
 				{
 					
-					wowOne[row][col].setGreen(wowTwo[row][col].getGreen()-1);
+					wowTwo[row][col].setGreen(wowTwo[row][col].getGreen()-1);
 				}
 				if(wowTwo[row][col].getBlue() % 2 == 1 && wowTwo[row][col].getBlue() > 0)
 				{
 					
-					wowOne[row][col].setBlue(wowTwo[row][col].getBlue()-1);
+					wowTwo[row][col].setBlue(wowTwo[row][col].getBlue()-1);
 				}
 				if(wowTwo[row][col].getRed() % 2 == 1 && wowTwo[row][col].getRed() > 0)
 				{
 					
-					wowOne[row][col].setRed(wowTwo[row][col].getRed()-1);
+					wowTwo[row][col].setRed(wowTwo[row][col].getRed()-1);
+				}
+				
+				if((wowOne[row][col].getRed() + wowOne[row][col].getGreen() + wowOne[row][col].getBlue())/3 >100)
+				{
+					wowTwo[row][col].setBlue(wowTwo[row][col].getBlue()+1);
+					wowTwo[row][col].setRed(wowTwo[row][col].getRed()+1);
+					wowTwo[row][col].setGreen(wowTwo[row][col].getGreen()+1);
 				}
 			}
 		}
+	}
+	public void decode(Picture fromPic)
+	{
+		Pixel[][] wowOne = this.getPixels2D();
+		Pixel[][] wowTwo = fromPic.getPixels2D();
+
+		for(int row = 0; row < wowOne.length; row++)
+		{
+			for(int col = 0; col < wowOne[0].length; col++)
+			{
+				if(wowTwo[row][col].getGreen() % 2 == 1 && wowTwo[row][col].getBlue() % 2 == 1 && wowTwo[row][col].getRed() % 2 == 1)
+				{
+					wowTwo[row][col].setRed(100);
+					wowTwo[row][col].setBlue(100);
+					wowTwo[row][col].setGreen(100);
+					
+				}
+			}
+		}
+		
 	}
 	
 
